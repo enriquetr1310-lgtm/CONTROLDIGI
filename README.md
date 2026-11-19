@@ -5,6 +5,7 @@ CSV que exporta el sistema (`legajos-DD-MM-AAAA-HH-MM.csv`).
 
 - **Frontend:** React + TypeScript + Vite + Tailwind CSS
 - **Backend:** Supabase (Postgres, inicio de sesión, tareas programadas)
+- **Publicación:** GitHub Pages, automática con GitHub Actions al actualizar `main`
 
 ## Reglas del negocio
 
@@ -28,7 +29,7 @@ CSV que exporta el sistema (`legajos-DD-MM-AAAA-HH-MM.csv`).
 - [ ] Fase 4 – Alertas y configuración de días
 - [ ] Fase 5 – Checklist de documentos
 - [ ] Fase 6 – Limpieza automática (3 días)
-- [ ] Fase 7 – Publicación
+- [x] **Fase 7** – Publicación en GitHub Pages (adelantada)
 
 ## Configuración inicial
 
@@ -61,6 +62,20 @@ npm run dev
 
 Abre la dirección que aparece (normalmente http://localhost:5173), inicia sesión y en **Inicio**
 debe aparecer "Conexión con Supabase correcta" con las tarjetas de cada estatus.
+
+## Publicación (GitHub Pages)
+
+Cada vez que se actualiza la rama `main`, el flujo `.github/workflows/deploy.yml` corre las
+pruebas, compila y publica en `https://enriquetr1310-lgtm.github.io/CONTROLDIGI/`.
+
+Configuración (una sola vez):
+1. **Settings → Pages → Build and deployment → Source:** *GitHub Actions*.
+2. **Settings → Secrets and variables → Actions → pestaña Variables → New repository variable:**
+   `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` (la clave pública).
+3. **Actions → Publicar en GitHub Pages → Run workflow** (o cualquier cambio en `main`).
+
+Las direcciones de la app usan `#` (ej. `…/CONTROLDIGI/#/cargar`) porque GitHub Pages no
+puede redirigir rutas.
 
 ## Pruebas
 
