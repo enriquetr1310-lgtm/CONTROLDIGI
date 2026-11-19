@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 interface ConfigEstatus {
@@ -67,13 +68,17 @@ export default function Inicio() {
 
       <section className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {activos.map((e) => (
-          <div key={e.estatus} className="rounded-lg border border-slate-200 bg-white p-4">
+          <Link
+            key={e.estatus}
+            to={`/expedientes?estatus=${encodeURIComponent(e.estatus)}`}
+            className="rounded-lg border border-slate-200 bg-white p-4 transition-colors hover:border-marca-600"
+          >
             <p className="text-xs font-medium text-slate-500">{e.estatus}</p>
             <p className="mt-1 text-2xl font-semibold tabular-nums text-slate-900">{estado.conteo[e.estatus] ?? 0}</p>
             <p className="mt-1 text-xs text-slate-400">
               Alerta a {e.dias_alerta} día{e.dias_alerta === 1 ? '' : 's'} sin cambio
             </p>
-          </div>
+          </Link>
         ))}
       </section>
 

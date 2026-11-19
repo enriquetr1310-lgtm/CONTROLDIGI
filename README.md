@@ -25,7 +25,7 @@ CSV que exporta el sistema (`legajos-DD-MM-AAAA-HH-MM.csv`).
 
 - [x] **Fase 1** – Base del proyecto, esquema de base de datos, inicio de sesión
 - [x] **Fase 2** – Carga diaria del CSV (vista previa, cambios, ausentes)
-- [ ] Fase 3 – Tablero de expedientes y ficha con historial
+- [x] **Fase 3** – Lista de expedientes (activos/cerrados, filtros, búsqueda), ficha con línea de tiempo, notas y motivo de cierre
 - [ ] Fase 4 – Alertas y configuración de días
 - [ ] Fase 5 – Checklist de documentos
 - [ ] Fase 6 – Limpieza automática (3 días)
@@ -39,7 +39,7 @@ CSV que exporta el sistema (`legajos-DD-MM-AAAA-HH-MM.csv`).
    Se puede volver a ejecutar sin problema.
 
    Después ejecuta de la misma forma, en orden, los demás scripts de esa carpeta
-   (`002_procesar_carga.sql`, …) conforme se vayan agregando en cada fase.
+   (`002_procesar_carga.sql`, `003_notas_expediente.sql`, …) conforme se vayan agregando en cada fase.
 
 ### 2. Crear los usuarios del equipo
 1. **Authentication → Sign In / Providers → Email**: desactiva **Allow new users to sign up**

@@ -5,6 +5,8 @@ import Layout from './components/Layout'
 import Login from './pages/Login'
 import Inicio from './pages/Inicio'
 import Cargar from './pages/Cargar'
+import Expedientes from './pages/Expedientes'
+import ExpedienteDetalle from './pages/ExpedienteDetalle'
 import Pendiente from './pages/Pendiente'
 import SinConfigurar from './pages/SinConfigurar'
 
@@ -22,7 +24,8 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Inicio />} />
         <Route path="cargar" element={<Cargar />} />
-        <Route path="expedientes" element={<Pendiente titulo="Expedientes" fase={3} />} />
+        <Route path="expedientes" element={<Expedientes />} />
+        <Route path="expedientes/:id" element={<ExpedienteDetalle />} />
         <Route path="alertas" element={<Pendiente titulo="Alertas" fase={4} />} />
         <Route path="documentos" element={<Pendiente titulo="Catálogo de documentos" fase={5} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
