@@ -79,7 +79,7 @@ export default function Inicio() {
 
       {estado.activos === 0 && (
         <p className="rounded-lg border border-dashed border-slate-300 bg-white p-6 text-center text-sm text-slate-500">
-          Aún no hay expedientes. La carga del archivo diario llega en la Fase 2.
+          Aún no hay expedientes. Ve a «Cargar archivo» para subir el CSV del día.
         </p>
       )}
     </div>
