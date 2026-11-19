@@ -154,6 +154,15 @@ create trigger documentos_expediente_updated_at before update on public.document
   for each row execute function public.tocar_updated_at();
 
 -- ---------------------------------------------------------------------
+-- Permisos para la API (necesarios si el proyecto se creó sin
+-- "Grant API access to new tables automatically"). Solo usuarios con
+-- sesión iniciada; el rol anónimo no recibe acceso.
+-- ---------------------------------------------------------------------
+grant usage on schema public to authenticated;
+grant select, insert, update, delete on all tables in schema public to authenticated;
+grant usage, select on all sequences in schema public to authenticated;
+
+-- ---------------------------------------------------------------------
 -- Seguridad (RLS): solo usuarios con sesión iniciada; todos ven todo.
 -- ---------------------------------------------------------------------
 do $$
